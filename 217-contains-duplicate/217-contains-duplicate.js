@@ -8,14 +8,8 @@ var containsDuplicate = function(nums) {
         const num = nums[i];
         if (num in numFrequency) {
             return true;
-        } else {
-            numFrequency[num] = 0;            
         }
-        numFrequency[num] += 1;
-        
-        if (numFrequency[num] > 1) {
-            return true;
-        }
+        numFrequency[num] = 1;
     }
     return false;
 };
