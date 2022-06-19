@@ -6,8 +6,10 @@ var containsDuplicate = function(nums) {
     let numFrequency = {};
     for (let i = 0; i < nums.length; i++) {
         const num = nums[i];
-        if (!(num in numFrequency)) {
-            numFrequency[num] = 0;
+        if (num in numFrequency) {
+            return true;
+        } else {
+            numFrequency[num] = 0;            
         }
         numFrequency[num] += 1;
         
