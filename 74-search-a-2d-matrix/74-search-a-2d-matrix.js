@@ -23,7 +23,7 @@ var searchMatrix = function(matrix, target) {
 //     }
 //     return false;
     
-    const found = binarySearch(flatArray, target, 0, flatArray.length);
+    const found = binarySearch(flatArray, target);
     if (found) {
         return true;
     } else {
@@ -31,7 +31,9 @@ var searchMatrix = function(matrix, target) {
     }
 };
 
-function binarySearch(arr, target, start = 0, end = 0) {
+function binarySearch(arr, target) {
+    let start = 0,
+        end = arr.length;
     
     while (start <= end) {
         const middle = Math.floor(start + (end - start) / 2);
