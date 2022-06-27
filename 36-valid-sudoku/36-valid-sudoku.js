@@ -19,22 +19,28 @@ var isValidSudoku = function(board) {
             const boxCol = (3 * (i % 3)) + (j % 3);
             boxVal = board[boxRow][boxCol];
             
-            if (row.has(rolVal)) {
-                return false;
-            } else if (rolVal !== '.') {
-                row.add(rolVal);
+            if (rolVal !== '.') {
+                if (row.has(rolVal)) {
+                    return false;
+                } else {
+                    row.add(rolVal);
+                }   
             }
             
-            if (col.has(colVal)) {
-                return false;
-            } else if (colVal !== '.') {
-                col.add(colVal);
+            if (colVal !== '.') {
+                if (col.has(colVal)) {
+                    return false;
+                } else {
+                    col.add(colVal);
+                }   
             }
             
-            if (box.has(boxVal)) {
-                return false;
-            } else if (boxVal !== '.') {
-                box.add(boxVal);
+            if (boxVal !== '.') {
+                if (box.has(boxVal)) {
+                    return false;
+                } else {
+                    box.add(boxVal);
+                }
             }
         }
         row.clear();
