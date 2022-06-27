@@ -6,7 +6,7 @@
 var searchMatrix = function(matrix, target) {
     const m = matrix.length;
     const n = matrix[0].length;
-    const flatArray = flattenArray(matrix);
+    // const flatArray = flattenArray(matrix);
     
     let row = 0,
         col = n - 1;
