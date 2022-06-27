@@ -3,15 +3,14 @@
  * @return {boolean}
  */
 var isValidSudoku = function(board) {
-    let seen = new Set();
-    
+    let row = new Set(),
+        col = new Set(),
+        box = new Set(),
+        rowVal = 0,
+        colVal = 0,
+        boxVal = 0;
     for (let i = 0; i < 9; i++) {
-        let row = new Set(),
-            col = new Set(),
-            box = new Set(),
-            rowVal = 0,
-            colVal = 0,
-            boxVal = 0;
+        
         for (let j = 0; j < 9; j++) {
             rolVal = board[i][j];
             colVal = board[j][i];
@@ -44,6 +43,9 @@ var isValidSudoku = function(board) {
                 }
             }
         }
+        row.clear();
+        col.clear();
+        box.clear();
     }
     return true;
 };
