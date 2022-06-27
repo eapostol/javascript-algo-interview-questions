@@ -15,14 +15,12 @@ var firstUniqChar = function(s) {
             charFrequency[s[right]] = 0;
         }
         charFrequency[s[right]] += 1;
-        if (charFrequency[s[right]] > 1) {
-            while (left < n && charFrequency[s[left]] > 1) {
-                left += 1;
-            }
-            if (left === n) {
-                return -1;
-            }
+    }
+    
+    for (let i = 0; i < n; i++) {
+        if (charFrequency[s[i]] === 1) {
+            return i;
         }
     }
-    return left;
+    return -1;
 };
