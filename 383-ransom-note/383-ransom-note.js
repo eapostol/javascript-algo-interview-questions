@@ -10,10 +10,6 @@ var canConstruct = function(ransomNote, magazine) {
         const val = magazine[i];
         let count = charFrequency.has(val) ? charFrequency.get(val) : 0;
         charFrequency.set(val,  count + 1);
-        // if (!(magazine[i] in charFrequency)) {
-            // charFrequency[magazine[i]] = 0;
-        // }
-        // charFrequency[magazine[i]] += 1;
     }
     
     for (let j = 0; j < ransomNote.length; j++) {
@@ -24,14 +20,6 @@ var canConstruct = function(ransomNote, magazine) {
             let count = charFrequency.get(val);
             charFrequency.set(val,  count - 1);
         }
-    //     if (ransomNote[j] in charFrequency) {
-    //         charFrequency[ransomNote[j]] -= 1;
-    //         if (charFrequency[ransomNote[j]] === 0) {
-    //             delete charFrequency[ransomNote[j]];
-    //         }
-    //     } else {
-    //         return false;
-    //     }
     }
     return true;
 };
