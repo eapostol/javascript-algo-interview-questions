@@ -16,7 +16,7 @@ var firstUniqChar = function(s) {
     }
     
     for (let i = 0; i < s.length; i++) {
-        if (charFrequency[s[i]] == 1 && s[i] in charFrequency) {
+        if (charFrequency[s[i]] == 1) {
             return i;
         }
     }
