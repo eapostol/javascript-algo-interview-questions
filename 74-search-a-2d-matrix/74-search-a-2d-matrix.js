@@ -6,22 +6,22 @@
 var searchMatrix = function(matrix, target) {
     const m = matrix.length;
     const n = matrix[0].length;
-    // const flatArray = flattenArray(matrix);
+    const flatArray = flattenArray(matrix);
     
-    let row = 0,
-        col = n - 1;
+//     let row = 0,
+//         col = n - 1;
     
-    while (row < m && col > -1) {
-        const current = matrix[row][col];
-        if (current === target) {
-            return true;
-        } else if (current > target) {
-            col -= 1;
-        } else if (current < target) {
-            row += 1;
-        }
-    }
-    return false;
+//     while (row < m && col > -1) {
+//         const current = matrix[row][col];
+//         if (current === target) {
+//             return true;
+//         } else if (current > target) {
+//             col -= 1;
+//         } else if (current < target) {
+//             row += 1;
+//         }
+//     }
+//     return false;
     
     const found = binarySearch(flatArray, target, 0, flatArray.length);
     if (found) {
@@ -49,7 +49,7 @@ function binarySearch(arr, target, start = 0, end = 0) {
 
 function flattenArray(arr, flattenedArr = []) {
     for (let i = 0; i < arr.length; i++) {
-        if (typeof arr[i] === 'object') {
+        if (Array.isArray(arr[i])) {
             flattenArray(arr[i], flattenedArr);
         } else {
             flattenedArr.push(arr[i]);
