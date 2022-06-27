@@ -18,10 +18,10 @@ var canConstruct = function(ransomNote, magazine) {
     
     for (let j = 0; j < ransomNote.length; j++) {
         const val = ransomNote[j];
-        if (!charFrequency.has(val) || charFrequency.get(val) == 0) {
+        if (!charFrequency.has(val) || charFrequency.get(val) < 1) {
             return false;
         } else {
-            let count = charFrequency.get(val) ? charFrequency.get(val) : 0;
+            let count = charFrequency.get(val);
             charFrequency.set(val,  count - 1);
         }
     //     if (ransomNote[j] in charFrequency) {
