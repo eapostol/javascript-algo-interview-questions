@@ -11,28 +11,14 @@ var matrixReshape = function(mat, r, c) {
         return mat;
     }
     
-    const result = [];
-    let index = 0;
+    const result = [[]];
     
-    const flatArray = flattenArray(mat);
-    for (let i = 0; i < r; i++) {
-        result[i] = [];
-        for (let j = 0; j < c; j++) {
-            result[i][j] = flatArray[index];
-            index += 1;
+    for (let i = 0; i < r * c; i++) {
+        const row = Math.floor(i / c);
+        if (!result[row]) {
+            result[row] = [];
         }
+        result[row][i % c] = mat[Math.floor(i / m)][i % m];
     }
     return result;
 };
-
-function flattenArray(arr, flattenedArray = []) {
-    
-    for (let i = 0; i < arr.length; i++) {
-        if (typeof arr[i] == 'object') {
-            flattenArray(arr[i], flattenedArray);
-        } else {
-            flattenedArray.push(arr[i]);
-        }
-    }
-    return flattenedArray;
-}
