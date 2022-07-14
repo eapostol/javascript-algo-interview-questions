@@ -10,8 +10,7 @@
  * @return {ListNode}
  */
 var deleteDuplicates = function(head) {
-    let newHead = new ListNode(-101);
-    newHead.next = head;
+    let newHead = head;
     let cur = newHead;
     while (cur && cur.next) {
         if (cur.next.val == cur.val) {
@@ -20,5 +19,5 @@ var deleteDuplicates = function(head) {
             cur = cur.next;
         }
     }
-    return newHead.next;
+    return newHead;
 };
