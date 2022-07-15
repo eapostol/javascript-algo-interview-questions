@@ -4,17 +4,17 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    const numsHash = {};
-    const n = nums.length;
-
-    for (let i = 0; i < n; i++) {
+    const numsMap = new Map();
+    
+    for(let i = 0; i < nums.length; i++) {
         const num = nums[i];
         
-        if (target - num in numsHash) {
-            return [numsHash[target - num], i];
+        if (numsMap.has(target - num)) {
+            return [numsMap.get(target - num), i];
         }
         
-        numsHash[num] = i;
+        numsMap.set(num, i);
     }
+    
     return [-1, -1];
 };
